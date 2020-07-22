@@ -1,11 +1,7 @@
 import React from "react"
 
-import TitleAndSub from "./titleAndSub"
-
 import "../sass/global.scss"
 import PropTypes from "prop-types"
-import Layout from "./layout"
-
 
 const LayoutFullScreen = ({ children }) => {
   return (
