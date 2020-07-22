@@ -4,7 +4,7 @@ import LayoutFullScreen from "../components/layout-fullscreen"
 import SEO from "../components/seo"
 import TitleAndSub from "../components/titleAndSub"
 
-import "../sass/global.scss"
+import "../sass/_global.scss"
 import "../sass/_button.scss"
 import constants from "../constants"
 import { createButton } from "../helpers"

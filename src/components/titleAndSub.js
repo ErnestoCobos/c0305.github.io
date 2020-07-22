@@ -1,6 +1,6 @@
 import React from "react"
 import "../sass/_titleAndSub.scss"
-import "../sass/global.scss"
+import "../sass/_global.scss"
 
 const TitleAndSub = ({ title, sub, secsub }) => (
   <div className="full-width text-center">

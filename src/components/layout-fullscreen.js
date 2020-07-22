@@ -1,6 +1,6 @@
 import React from "react"
 
-import "../sass/global.scss"
+import "../sass/_global.scss"
 import PropTypes from "prop-types"
 
 const LayoutFullScreen = ({ children }) => {

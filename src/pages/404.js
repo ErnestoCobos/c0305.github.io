@@ -4,7 +4,7 @@ import PlaneIcon from "../assets/plane.svg"
 
 import TitleAndSub from "../components/titleAndSub"
 import "../sass/_404.scss"
-import "../sass/global.scss"
+import "../sass/_global.scss"
 
 const text = {
   title: "404 Error - This page doesn't exist",

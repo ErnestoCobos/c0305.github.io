@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 
-import "../sass/global.scss"
+import "../sass/_global.scss"
 import constants from "../constants"
 import { createButton } from "../helpers"
 
