@@ -7,40 +7,43 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import constants from "../constants"
+import { createButton } from "../helpers"
+
+
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+
+  let socialLinks
+  socialLinks = []
+  for (const [index, element] of constants.socialData.entries()) {
+    socialLinks.push(createButton(element,index))
+  }
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className="page-container">
+      <Header/>
+      <main>{children}</main>
+      <footer className="footer">
+        <div className="footer__items">
+          <div className="footer__copyright">
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>.
+          </div>
+
+          <div className="footer__social">
+            <div className="social text-center">
+              <ul>
+                {socialLinks}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }
 
