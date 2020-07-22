@@ -1,42 +1,38 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+import "../sass/global.scss"
+import constants from "../constants"
+import { createButton } from "../helpers"
+
+const links = []
+
+for (const [index, element] of constants.linksData.entries()) {
+  let button
+  if (element.link.includes(window.location.pathname)) {
+    button = createButton(element, index, "button-module--active")
+  } else {
+    button = createButton(element, index)
+  }
+  links.push(button)
+}
+
+
+const Header = () => (
+  <header>
+    <div className="header">
+      <div className="header__title">
         <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+          to="/">
+          COBOS
         </Link>
-      </h1>
+      </div>
+      <div className="nav">
+        {links}
+      </div>
     </div>
   </header>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
