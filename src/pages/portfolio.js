@@ -5,7 +5,7 @@ import CardContainer from "../components/cards-container"
 const PortfolioPage = () => {
   return (
     <>
-      <Layout>
+      <Layout path="portfolio">
         <div className="title">
           Portfolio
         </div>

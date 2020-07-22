@@ -7,6 +7,7 @@ import { createButton } from "../helpers"
 
 
 const Header = ({ path }) => {
+
   const links = []
 
   for (const [index, element] of constants.linksData.entries()) {

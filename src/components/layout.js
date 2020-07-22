@@ -13,7 +13,7 @@ import constants from "../constants"
 import { createButton } from "../helpers"
 
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, path }) => {
 
   let socialLinks
   socialLinks = []
@@ -23,7 +23,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <div className="page-container">
-      <Header path={location}/>
+      <Header path={path}/>
       <main>{children}</main>
       <footer className="footer">
         <div className="footer__items">
