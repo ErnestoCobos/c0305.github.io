@@ -7,7 +7,7 @@ const LayoutFullScreen = ({ children }) => {
   return (
     <>
       <div className="full-height is-relative has-background-blue">
-        <div className="is-vertical-center full-width">
+        <div>
           <main className="is-vertical-center full-width">{children}</main>
         </div>
       </div>
