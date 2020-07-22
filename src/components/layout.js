@@ -13,18 +13,17 @@ import constants from "../constants"
 import { createButton } from "../helpers"
 
 
-
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
 
   let socialLinks
   socialLinks = []
   for (const [index, element] of constants.socialData.entries()) {
-    socialLinks.push(createButton(element,index))
+    socialLinks.push(createButton(element, index))
   }
 
   return (
     <div className="page-container">
-      <Header/>
+      <Header path={location}/>
       <main>{children}</main>
       <footer className="footer">
         <div className="footer__items">
