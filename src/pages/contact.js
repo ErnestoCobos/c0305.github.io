@@ -29,7 +29,8 @@ const ContactPage = () => {
                             <div className="top-space is-relative">
                                 <div ref={endMessage} className="hide onSubmit">
                                     <h1>
-                                        Thank you for your message. it has been sent
+                                        This site is still under construction so the form is not available, please send
+                                        me an email
                                     </h1>
                                 </div>
                                 <div>
