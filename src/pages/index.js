@@ -6,11 +6,12 @@ import TitleAndSub from "../components/titleAndSub"
 
 import "../sass/_global.scss"
 import "../sass/_button.scss"
-import constants from "../constants"
-import { createButton } from "../helpers"
+import C from "../constants";
+import Button from "../components/button";
 
 
-const IndexPage = () => {
+const IndexPage = ({path}) => {
+  console.log(path)
   const data = {
     title: "COBOS",
     sub: "I’m a web developer with some full-stack chops, too. I’m passionate about web development, analytics and data management."
@@ -22,19 +23,6 @@ const IndexPage = () => {
     description: "Ernesto Cobos - a software developer that love to code"
   }
 
-  const socialLinks = []
-  const links = []
-
-  for (const [index, element] of constants.linksData.entries()) {
-    if (element.link !== "/") {
-      links.push(createButton(element, index))
-    }
-  }
-
-  for (const [index, element] of constants.socialData.entries()) {
-    socialLinks.push(createButton(element, index))
-  }
-
   return (
     <>
       <LayoutFullScreen>
@@ -43,11 +31,26 @@ const IndexPage = () => {
              description={seoData.description}
         />
         <TitleAndSub title={data.title} sub={data.sub}/>
-        {links}
+        {C.linksData.map(({name, link}, index) => {
+          if (link !== "/") {
+            return (
+                <Button key={index} isType="link" to={link}>
+                  {name}
+                </Button>
+            )
+          }
+          return null
+        })}
         <div className="full-width text-center">
           <div className="social text-center">
             <ul>
-              {socialLinks}
+              {C.socialData.map(({icon, link}, index) => {
+                return (
+                    <li key={index}>
+                      <Button isType="social" socialIcon={icon} to={link}/>
+                    </li>
+                )
+              })}
             </ul>
           </div>
         </div>

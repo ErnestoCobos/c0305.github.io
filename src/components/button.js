@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import {Link} from "gatsby"
 import React from "react"
 
 import "../sass/_button.scss"
@@ -73,7 +73,15 @@ const Button = (props) => {
       return SocialLink(props)
     default:
       // TODO: Add normal button
-      return
+      return (
+          <div className="button">
+            <div className="button-container">
+              <button type={props.type} className="button-module">
+                {props.children}
+              </button>
+            </div>
+          </div>
+      )
   }
 }
 

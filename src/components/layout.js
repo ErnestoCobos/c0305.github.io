@@ -9,38 +9,37 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
-import constants from "../constants"
-import { createButton } from "../helpers"
+import C from "../constants"
+import Button from "./button";
 
 
-const Layout = ({ children, path }) => {
+const Layout = (props) => {
+    return (
+        <div className="page-container">
+            <Header path={props.path}/>
+            <main>{props.children}</main>
+            <footer className="footer">
+                <div className="footer__items">
+                    <div className="footer__copyright">
+                        © {new Date().getFullYear()}, Built with
+                        {` `}
+                        <a href="https://www.gatsbyjs.org">Gatsby</a>.
+                    </div>
 
-  let socialLinks
-  socialLinks = []
-  for (const [index, element] of constants.socialData.entries()) {
-    socialLinks.push(createButton(element, index))
-  }
-
-  return (
-    <div className="page-container">
-      <Header path={path}/>
-      <main>{children}</main>
-      <footer className="footer">
-        <div className="footer__items">
-          <div className="footer__copyright">
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>.
-          </div>
-
-          <div className="footer__social">
-            <div className="social text-center">
-              <ul>
-                {socialLinks}
-              </ul>
-            </div>
-          </div>
-        </div>
+                    <div className="footer__social">
+                        <div className="social text-center">
+                            <ul>
+                                {C.socialData.map(({icon, name, link}, index) => {
+                                    return (
+                                        <li key={`${index}-${icon}`}>
+                                            <Button isType="social" socialIcon={icon} to={link}/>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
       </footer>
     </div>
   )
